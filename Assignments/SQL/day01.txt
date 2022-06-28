@@ -1,0 +1,103 @@
+Question1.---------------------------------------------------------
+Ans.--------------------------------------------------Start-------------------------------------------------------------------
+
+mysql> create table city;
+ERROR 4028 (HY000): A table must have at least one visible column.
+mysql> create table city(
+    -> id int,
+    -> name varchar(17),
+    -> countrycode varchar(3),
+    -> district varchar(20),
+    -> population int
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into city values(3878,'Scottsdale','USA','Arizona',202705);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into city values(3965,'Corona','USA','California',90000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into city values(3973,'Concord','USA',California,121780);
+ERROR 1054 (42S22): Unknown column 'California' in 'field list'
+mysql> insert into city values(3973,'Concord','USA','California',121780);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into city values(3977,'Cedar Rapids','USA','lowa',120758);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into city values(3982,'Coral Springs','USA','Florida',87456);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from city where population>100000;
++------+--------------+-------------+------------+------------+
+| id   | name         | countrycode | district   | population |
++------+--------------+-------------+------------+------------+
+| 3878 | Scottsdale   | USA         | Arizona    |     202705 |
+| 3973 | Concord      | USA         | California |     121780 |
+| 3977 | Cedar Rapids | USA         | lowa       |     120758 |
++------+--------------+-------------+------------+------------+
+3 rows in set (0.00 sec)
+
+mysql>
+
+------------------------------------------------------------End-------------------------------------------------------------
+
+
+
+
+
+
+
+
+Question2.----------------------------------------------------------------------------------------------------------------
+Ans.-----------------------------------------------------Start------------------------------------------------------------
+mysql> select * from city;
++------+---------------+-------------+------------+------------+
+| id   | name          | countrycode | district   | population |
++------+---------------+-------------+------------+------------+
+| 3878 | Scottsdale    | USA         | Arizona    |     202705 |
+| 3965 | Corona        | USA         | California |      90000 |
+| 3973 | Concord       | USA         | California |     121780 |
+| 3977 | Cedar Rapids  | USA         | lowa       |     120758 |
+| 3982 | Coral Springs | USA         | Florida    |      87456 |
++------+---------------+-------------+------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select sum(population) from city where district='California';
++-----------------+
+| sum(population) |
++-----------------+
+|          211780 |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql>
+
+
+
+
+---------------------------------------------------------End--------------------------------------------------------------
+
+
+
+
+
+
+
+
+Question3.----------------------------------------------------------------------------------------------------------------
+Ans.-----------------------------------------------------Start------------------------------------------------------------
+
+mysql> select ceiling(sum(population)/5) from city as cielvalue;
++----------------------------+
+| ceiling(sum(population)/5) |
++----------------------------+
+|                     124540 |
++----------------------------+
+1 row in set (0.00 sec)
+
+mysql>
+
+
+---------------------------------------------------------End--------------------------------------------------------------
