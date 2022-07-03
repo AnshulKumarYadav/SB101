@@ -1,0 +1,146 @@
+Question.------------------------------------------------------------------------------
+Ans. ------------------------------Answer 1--------------------------------------------
+
+mysql> create table employee
+    -> (
+    -> EmpID int primary key,
+    -> EmpFName varchar(18),
+    -> EmpLName varchar(18),
+    -> Department varchar(20),
+    -> Project varchar(20),
+    -> Address varchar(20),
+    -> DOB varchar(10),
+    -> Gender varchar(1),
+    -> Salary varchar(100)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO employee VALUES (1,'Sanjay','Mehra','HR','P1','Hyderabad','01/12/1976','M',50000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employee VALUES (2,'Ananya','Mishra','Admin','P2','Delhi','02/05/1968','F',75000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employee VALUES (3,'Rohan','Diwan','Account','P1','Mumbai','01/01/1980','M',90000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employee VALUES (4,'Sonia','Kulkarni','HR','P3','Hyderabad','02/05/1992','F',50000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO employee VALUES (5,'Priya','Thakur','Development','P2','Banglore','23/02/1992','F',100000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM employee where Department ='HR';
++-------+----------+----------+------------+---------+-----------+------------+--------+--------+
+| EmpID | EmpFName | EmpLName | Department | Project | Address   | DOB        | Gender | Salary |
++-------+----------+----------+------------+---------+-----------+------------+--------+--------+
+|     1 | Sanjay   | Mehra    | HR         | P1      | Hyderabad | 01/12/1976 | M      | 50000  |
+|     4 | Sonia    | Kulkarni | HR         | P3      | Hyderabad | 02/05/1992 | F      | 50000  |
++-------+----------+----------+------------+---------+-----------+------------+--------+--------+
+2 rows in set (0.00 sec)
+
+
+
+
+
+
+=======================================================Answer 2=======================================================
+
+
+
+mysql> SELECT count(Gender) FROM employee where Gender = 'F';
++---------------+
+| count(Gender) |
++---------------+
+|             3 |
++---------------+
+1 row in set (0.01 sec)
+
+mysql>
+
+
+
+========================================================Answer 3=========================================================
+
+
+mysql> SELECT * FROM employee where Department = 'HR' AND Gender = 'F';
++-------+----------+----------+------------+---------+-----------+------------+--------+--------+
+| EmpID | EmpFName | EmpLName | Department | Project | Address   | DOB        | Gender | Salary |
++-------+----------+----------+------------+---------+-----------+------------+--------+--------+
+|     4 | Sonia    | Kulkarni | HR         | P3      | Hyderabad | 02/05/1992 | F      | 50000  |
++-------+----------+----------+------------+---------+-----------+------------+--------+--------+
+1 row in set (0.00 sec)
+
+mysql>
+
+
+==================================================Answer 4==============================================================
+
+mysql> SELECT * FROM employee where EmpFName LIKE '_%a' OR EmpFName LIKE '_%e' OR EmpFName LIKE '_%i' OR EmpFName LIKE '_%o' OR EmpFName LIKE '_%u';
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+| EmpID | EmpFName | EmpLName | Department  | Project | Address   | DOB        | Gender | Salary |
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+|     2 | Ananya   | Mishra   | Admin       | P2      | Delhi     | 02/05/1968 | F      | 75000  |
+|     4 | Sonia    | Kulkarni | HR          | P3      | Hyderabad | 02/05/1992 | F      | 50000  |
+|     5 | Priya    | Thakur   | Development | P2      | Banglore  | 23/02/1992 | F      | 100000 |
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+3 rows in set (0.00 sec)
+
+mysql>
+
+
+================================================Answer 5==========================================================
+
+mysql> SELECT Department FROM employee;
++-------------+
+| Department  |
++-------------+
+| HR          |
+| Admin       |
+| Account     |
+| HR          |
+| Development |
++-------------+
+5 rows in set (0.00 sec)
+
+
+================================================Answer 6===========================================================
+
+mysql> SELECT * FROM employee where Gender = 'F' AND Salary > 75000;
++-------+----------+----------+-------------+---------+----------+------------+--------+--------+
+| EmpID | EmpFName | EmpLName | Department  | Project | Address  | DOB        | Gender | Salary |
++-------+----------+----------+-------------+---------+----------+------------+--------+--------+
+|     5 | Priya    | Thakur   | Development | P2      | Banglore | 23/02/1992 | F      | 100000 |
++-------+----------+----------+-------------+---------+----------+------------+--------+--------+
+1 row in set (0.00 sec)
+
+
+=========================================Answer 7===========================================
+
+mysql> SELECT count(EmpFName) FROM employee where Salary > 50000 AND salary < 100000;
++-----------------+
+| count(EmpFName) |
++-----------------+
+|               2 |
++-----------------+
+1 row in set (0.00 sec)
+
+
+================================================Answer 8====================================
+
+mysql> SELECT count(EmpFName) FROM employee group by department;
++-----------------+
+| count(EmpFName) |
++-----------------+
+|               2 |
+|               1 |
+|               1 |
+|               1 |
++-----------------+
+4 rows in set (0.01 sec)
+
+mysql>
+
+
+
+

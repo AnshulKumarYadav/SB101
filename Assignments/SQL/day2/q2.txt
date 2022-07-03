@@ -1,0 +1,95 @@
+
+Question1.-----------------------------------------------------------------------------------------------
+Answer.--------------------------------------------- Answer Start.----------------------------------------------------------------
+
+create table movie
+(
+id int primary key,
+title varchar(20),
+Director varchar(20),
+year int,
+length_minures int
+);
+
+create table movie_rating
+(
+movie_id int,
+rating int,
+domestic_sales varchar(10),
+international_sales varchar(10),
+foreign key(movie_id) references movie(id)
+);
+
+mysql> insert into movie values(2,'A Bugs Life','John Lasseter',1998,95);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into movie values(3,'Toy Story 2','John Lasseter',1999,93);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into movie values(4,'Monsters, Inc.','Pete Docter',2001,92);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into movie values(5,'Civil War','Andrew Stanton',2003,107);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into movie values(6,'The Incredibles','Brad Bird',2004,116);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into movie_rating values(5,8.2,'380843261','55590000');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into movie_rating values(1,7.4,'268492764','475066843');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into movie_rating values(3,8,'206492764','475066843');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into movie_rating values(2,6.4,'196492764','365066843');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into movie_rating values(4,7.9,'246492764','235066843');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into movie_rating values(6,8,'266492764','375066843');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select m.id,m.title,mr.domestic_sales,mr.international_sales from movie m inner join movie_rating mr on m.id = mr.movie_id and mr.international_sales > mr.domestic_sales;
++----+-----------------+----------------+---------------------+
+| id | title           | domestic_sales | international_sales |
++----+-----------------+----------------+---------------------+
+|  5 | Civil War       | 380843261      | 55590000            |
+|  1 | Toy Story       | 268492764      | 475066843           |
+|  3 | Toy Story 2     | 206492764      | 475066843           |
+|  2 | A Bugs Life     | 196492764      | 365066843           |
+|  6 | The Incredibles | 266492764      | 375066843           |
++----+-----------------+----------------+---------------------+
+5 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+--------------------------------------------Part 2-----------------------------------------------
+
+mysql> select m.id,m.title,mr.domestic_sales,mr.international_sales from movie m inner join movie_rating mr on m.id = mr.movie_id and mr.international_sales > mr.domestic_sales;
++----+-----------------+----------------+---------------------+
+| id | title           | domestic_sales | international_sales |
++----+-----------------+----------------+---------------------+
+|  5 | Civil War       | 380843261      | 55590000            |
+|  1 | Toy Story       | 268492764      | 475066843           |
+|  3 | Toy Story 2     | 206492764      | 475066843           |
+|  2 | A Bugs Life     | 196492764      | 365066843           |
+|  6 | The Incredibles | 266492764      | 375066843           |
++----+-----------------+----------------+---------------------+
+5 rows in set (0.00 sec)
+
+mysql>
+
+
+
+
+----------------------------------------------Answer End----------------------------------------------------
