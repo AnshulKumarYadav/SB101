@@ -1,0 +1,7 @@
+mysql> select c.email,count(o.customer_id) from orders o INNER JOIN customers c ON o.customer_id = c.customer_id and o.order_placed_date > '2016-01-01' group by o.customer_id  ;
++--------------+----------------------+
+| email        | count(o.customer_id) |
++--------------+----------------------+
+| abc@mail.com |                    2 |
+| efg@mail.com |                    1 |
++--------------+----------------------+

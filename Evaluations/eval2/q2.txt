@@ -1,0 +1,9 @@
+Question . Briefly explain what a transaction is along with the ACID properties.
+
+Ans. The transaction is a set of related operations that are used to perform the logical unit works.
+ACID stand for Atomocity, Consistency, Isolationo and Durability.
+With the acid properties we perform operations like nothing takes place at onceor and the always database must
+be consistant and multiple transactions can be performed at a time and the changes of succesfull transactions
+sould be permanent even if the system failure occurs.
+
+

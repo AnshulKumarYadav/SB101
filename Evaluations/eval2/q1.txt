@@ -1,5 +1,3 @@
-Question3.-----------------------------------------------------------------------------------------------
-Answer. -------------------------------------------------------------------------------------------------
 mysql> select person.firstname,person.lastnam,address.city,address.state from person Left Join address ON person.personId = address.personId;
 +-----------+---------+---------------+----------+
 | firstname | lastnam | city          | state    |

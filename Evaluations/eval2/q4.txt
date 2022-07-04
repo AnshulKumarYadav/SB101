@@ -1,0 +1,19 @@
+
+a) What is normalization and why is it needed?
+
+Ans. Normalization is a process of organizing the data in the database to avoid the dupliciency of data.
+
+
+b) What is the 2NF? Explain with an example. You don’t need to draw the
+tables or write the queries. Just mention the schema before and after the
+third normal form.
+
+
+Ans.  2nd normal form conditions:
+       1. It should be in 1 normal form.
+       2. It should not have any partial dependencies.
+
+       A is super key
+       B is prime attrubute
+       C is non prome attrubute
+       A---->B and B---->C and A---->C
