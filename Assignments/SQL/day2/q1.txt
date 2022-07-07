@@ -187,8 +187,17 @@ mysql> ON student_course.c_id = course.c_id AND course.c_name = 'JAVA';
 +------+--------+-----------+------------+-------+
 2 rows in set (0.00 sec)
 
-
+select student_course.s_id,student.s_name,student.s_address,student.s_phone,student.a_age from student_course 
+INNER JOIN  student
+ON student_course.s_id = student.s_id AND student.s_address = 'DELHI' 
+INNER JOIN course
+ON student_course.c_id = course.c_id AND course.c_name = 'JAVA';
 
 
 
 -------------------------------------------Answer End-----------------------------------------
+
+
+
+
+

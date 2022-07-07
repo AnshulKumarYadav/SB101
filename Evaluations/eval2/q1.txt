@@ -5,3 +5,10 @@ mysql> select person.firstname,person.lastnam,address.city,address.state from pe
 | Allen     | Wang    | NULL          | NULL     |
 | Bob       | Alice   | New York City | New York |
 +-----------+---------+---------------+----------+
+
+
+
+
+
+
+
